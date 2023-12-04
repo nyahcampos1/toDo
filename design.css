@@ -1,15 +1,12 @@
 body {
-    background: #fff;
-    color: #333;
+    color: black;
     font-family; Lato, sans-serif;
-    background: #B2FEFA;
-    background: -webkit-linear-gradient(to right, #f1a0a0, #b2fef8);
-    background: linear-gradient(to right, #f1a0a0, #b2fef8);
+    background: pink;
 }
 #title {
     margin-top: 5px;
     font-size: 50px;
-    font-family: Impact, Haettenschweiler, 'Calibri', sans-serif;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
     text-align: center;
 }
 .container {
@@ -115,4 +112,8 @@ ul li input[type=text] {
 }
 ul li.editMode input[type=text] {
     display: block;
+}
+.dark-mode {
+    background-color:black;
+    color: white;
 }

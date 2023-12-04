@@ -28,8 +28,7 @@ let createNewTask = function(taskName) {
 }
 let addTask = function addTask() {
     if (taskInput.value == "") {
-        alert("Task to be added should not be empty!");
-        return;
+        return alert("Task to be added should not be empty!");
     }
     let listItem = createNewTask(taskInput.value);
     incompleteTasks.appendChild(listItem);
@@ -82,3 +81,7 @@ let clear = function() {
     completedTasks.innerHTML = "";
 }
 clearButton.addEventListener('click', clear);
+function myFunction() {
+  var element = document.body;
+  element.classList.toggle("dark-mode");
+}
