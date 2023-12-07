@@ -3,7 +3,7 @@ let addButton = document.getElementById("addButton");
 let incompleteTasks = document.getElementById("incomplete-tasks");
 let completedTasks = document.getElementById("completed-tasks");
 let clearButton = document.getElementById("clear");
-let createNewTask = function(taskName) {
+function createNewTask(taskName) {
     let listItem = document.createElement("li");
     let checkBox = document.createElement("input");
     let label = document.createElement("label");
@@ -26,7 +26,7 @@ let createNewTask = function(taskName) {
 
     return listItem;
 }
-let addTask = function addTask() {
+function addTask() {
     if (taskInput.value == "") {
         return alert("Task to be added should not be empty!");
     }
@@ -34,9 +34,10 @@ let addTask = function addTask() {
     incompleteTasks.appendChild(listItem);
     bindTaskEvents(listItem, taskCompleted);
     taskInput.value = "";
+    addButton.addEventListener("click", addTask);
 }
 
-let editTask = function editTask() {
+function editTask() {
 
     let listItem = this.parentNode;
     let editInput = listItem.querySelector("input[type=text]");
@@ -49,25 +50,25 @@ let editTask = function editTask() {
     }
     listItem.classList.toggle("editMode");
 }
-let deleteTask = function() {
+function deleteTask() {
     let listItem = this.parentNode;
     let ul = listItem.parentNode;
     ul.removeChild(listItem);
 }
-let taskCompleted = function() {
+function taskCompleted() {
     let listItem = this.parentNode;
     completedTasks.appendChild(listItem);
     bindTaskEvents(listItem, taskIncomplete);
 }
 
 
-let taskIncomplete = function() {
+function taskIncomplete() {
     let listItem = this.parentNode;
     incompleteTasks.appendChild(listItem);
     bindTaskEvents(listItem, taskCompleted);
 }
-addButton.addEventListener("click", addTask);
-let bindTaskEvents = function(taskListItem, checkBoxEventHandler) {
+
+function bindTaskEvents(taskListItem, checkBoxEventHandler) {
     let checkBox = taskListItem.querySelector('input[type="checkbox"]');
     let editButton = taskListItem.querySelector("button.edit");
     let deleteButton = taskListItem.querySelector("button.delete");
@@ -76,12 +77,12 @@ let bindTaskEvents = function(taskListItem, checkBoxEventHandler) {
     checkBox.onchange = checkBoxEventHandler;
 }
 
-let clear = function() {
+function clear() {
     incompleteTasks.innerHTML = "";
     completedTasks.innerHTML = "";
 }
 clearButton.addEventListener('click', clear);
 function myFunction() {
-  var element = document.body;
-  element.classList.toggle("dark-mode");
+    var element = document.body;
+    element.classList.toggle("dark-mode");
 }
